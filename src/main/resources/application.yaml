@@ -1,4 +1,4 @@
-spring:  profiles:    include:    - default;smart    active:    - smart---spring:  config:    activate:      on-profile:      - default
+spring:  profiles:    active:    - smart---spring:  config:    activate:      on-profile:      - default
 hr:
   raise:
     dflt:
