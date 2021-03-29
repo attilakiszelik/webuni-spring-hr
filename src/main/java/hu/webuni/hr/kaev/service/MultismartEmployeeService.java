@@ -55,12 +55,16 @@ public class MultismartEmployeeService implements EmployeeService {
 	    map.entrySet()
 	    .stream()
 	    .sorted(Map.Entry.<String, Level>comparingByKey())
+	    .takeWhile(entry -> entry.getValue().getYear()*365 <= days)
 	    .forEach(entry -> {
+	    		//System.out.println(entry.getValue().getPercent());
 	    		if (entry.getValue().getYear()*365 <= days) {
 	    			setPercent((int) entry.getValue().getPercent());
+	    			
 	    		};
-	    		});
-	    
+	    		})
+	    ;
+    
 	    return percent;
 	    
 	}
