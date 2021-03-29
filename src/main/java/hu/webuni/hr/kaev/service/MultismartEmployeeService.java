@@ -1,7 +1,7 @@
 package hu.webuni.hr.kaev.service;
 
 import java.time.LocalDate;
-import java.time.Period;
+import java.time.temporal.ChronoUnit;
 import java.util.Map;
 //import java.util.Map.Entry;
 
@@ -31,8 +31,7 @@ public class MultismartEmployeeService implements EmployeeService {
 		setPercent(0);
 		
 	    LocalDate joindate = employee.getJoindate();
-	    Period period = Period.between(now, joindate);
-	    double years = Math.abs(period.getYears());
+	    long days = ChronoUnit.DAYS.between(joindate, now);
 	    
 	    Map<String, Level> map = config.getRaise().getMltsmrt().getLevels();
 
@@ -41,7 +40,7 @@ public class MultismartEmployeeService implements EmployeeService {
 			
 	    	Level level = entry.getValue();
 	    	
-	    	if (years > level.getYear()) {
+	    	if (days >= level.getYear()*365) {
 	    		
 	    		if( percent < level.getPercent() ) {
 	    			
@@ -57,7 +56,7 @@ public class MultismartEmployeeService implements EmployeeService {
 	    .stream()
 	    .sorted(Map.Entry.<String, Level>comparingByKey())
 	    .forEach(entry -> {
-	    		if (entry.getValue().getYear() <= years) {
+	    		if (entry.getValue().getYear()*365 <= days) {
 	    			setPercent((int) entry.getValue().getPercent());
 	    		};
 	    		});
