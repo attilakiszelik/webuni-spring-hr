@@ -1,10 +1,10 @@
-package hu.webuni.hr.kaev.model;
+package hu.webuni.hr.kaev.dto;
 
 import java.time.LocalDate;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-public class Employee {
+public class EmployeeDto {
 
 	private Long id;
 	private String name;
@@ -14,11 +14,11 @@ public class Employee {
 	private LocalDate joindate;
 	
 	//constructors
-	public Employee() {
-		
+	public EmployeeDto() {
+	
 	}
 	
-	public Employee(Long id, String name, String position, int salary, LocalDate joindate) {
+	public EmployeeDto(Long id, String name, String position, int salary, LocalDate joindate) {
 		this.id = id;
 		this.name = name;
 		this.position = position;
@@ -57,7 +57,5 @@ public class Employee {
 	public void setJoindate(LocalDate joindate) {
 		this.joindate = joindate;
 	}
-	
-	
 	
 }

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	
+	<meta charset="UTF-8">
+
+	<title>Alkalmazottak</title>
+
+</head>
+
+<body>
+
+	<h1>Alkalmazottak</h1>
+	
+	<table class="table">
+		<tr>
+			<th>azonosító</th>
+			<th>név</th>
+			<th>pozíció</th>
+			<th>belépés dátuma</th>
+			<th>fizetés</th>
+			<th>törlés</th>
+		</tr>
+		<tr th:each="employee : ${employees}">
+			<td th:text="${employee.id}">azonosító</td>
+			<td><a th:href="@{/employees/{id}(id=${employee.id})}" th:text="${employee.name}">név</a></td>
+			<td th:text="${employee.position}">pozíció</td>
+			<td th:text="${employee.joindate}">belépés dátuma</td>
+			<td th:text="${employee.salary}">fizetés</td>
+			<td><a th:href="@{/deleteEmployee/{id}(id=${employee.id})}">törlés</a></td>
+		</tr>
+	</table>
+	
+	<br><br><br>
+	
+	<form th:action="@{/employees}" method="post" th:object="${newEmployee}">
+		azonosító: <input type="text" th:field="*{id}"/><br>
+		név: <input type="text" th:field="*{name}"/><br>
+		pozíció: <input type="text" th:field="*{position}"/><br>
+		belépés dátuma: <input type="date" th:field="*{joindate}"/><br>
+		fizetés: <input type="text" th:field="*{salary}"/><br>
+		<input type="submit" value="mentés"/>
+	</form>	
+
+</body>
+
+</html>

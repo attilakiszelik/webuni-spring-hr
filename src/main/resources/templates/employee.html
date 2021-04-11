@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	
+	<meta charset="UTF-8">
+
+	<title>Alkalmazott módosítása</title>
+
+</head>
+
+<body>
+
+	<h1>Alkalmazott módosítása</h1>
+	
+	<form th:action="@{/modifyEmployee}" method="post" th:object="${employee}">
+		azonosító: <span th:text="*{id}"></span><input type="hidden" th:field="*{id}"/><br>
+		név: <input type="text" th:field="*{name}"/><br>
+		pozíció: <input type="text" th:field="*{position}"/><br>
+		belépés dátuma: <input type="date" th:field="*{joindate}"/><br>
+		fizetés: <input type="text" th:field="*{salary}"/><br>
+		<input type="submit" value="mentés"/>
+	</form>	
+
+</body>
+
+</html>

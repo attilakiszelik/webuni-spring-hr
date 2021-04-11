@@ -29,7 +29,7 @@ public class HrApplication implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-		
+/*		
 		System.out.println();
 		System.out.println("test for profile: default");
 		System.out.println("1.200.000 + 5% => 1.260.000 = " + salaryService.getNewSalary(employee1));
@@ -52,7 +52,7 @@ public class HrApplication implements CommandLineRunner{
 		System.out.println("100.000 + 15% (15-20 év) => 115.000 = " + salaryService.getNewSalary(new Employee((long) 10000,"xy", "N/A",100000,LocalDate.of(2006, Month.JANUARY, 1))));
 		System.out.println("100.000 + 20% (20-25 év) => 120.000 = " + salaryService.getNewSalary(new Employee((long) 10000,"xy", "N/A",100000,LocalDate.of(2001, Month.JANUARY, 1))));
 		System.out.println("100.000 + 25% (25+ év) => 125.000 = " + salaryService.getNewSalary(new Employee((long) 10000,"xy", "N/A",100000,LocalDate.of(1996, Month.JANUARY, 1))));
-		
+*/		
 	}
 
 }
